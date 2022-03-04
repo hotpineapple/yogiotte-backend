@@ -4,16 +4,16 @@ module.exports = class User extends Sequelize.Model {
     static init(sequelize) {
         return super.init({
             name: {
-                type: Sequelize.STRING(100),
+                type: Sequelize.STRING(1000),
                 allowNull: false,
                 unique: true,
             },
             password: {
-                type: Sequelize.STRING(40),
+                type: Sequelize.STRING(1000),
                 allowNull: false,
             },
             provider: {
-                type: Sequelize.STRING(40),
+                type: Sequelize.STRING(1000),
                 allowNull: false,
                 defaultValue: 'local',
             }
@@ -34,7 +34,7 @@ module.exports = class User extends Sequelize.Model {
         db.User.belongsToMany(db.Place, {
             foreignKey: 'likeId',
             as: 'myplace',
-            through: 'Like',
+            through: 'Bookmark',
         });
     }
 };

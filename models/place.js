@@ -20,6 +20,10 @@ module.exports = class Place extends Sequelize.Model {
                 type: Sequelize.STRING(100),
                 allowNull: false,
             },
+            code:{
+                type: Sequelize.STRING(100),
+                allowNull: false,
+            },
             lat: {
                 type: Sequelize.STRING(100),
                 allowNull: false,
@@ -48,7 +52,7 @@ module.exports = class Place extends Sequelize.Model {
         db.User.belongsToMany(db.User, {
             foreignKey: 'likeId',
             as: 'bookmarkedBy',
-            through: 'Like',
+            through: 'Bookmark',
         });
-     }
+    }
 };
